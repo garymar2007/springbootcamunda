@@ -15,6 +15,8 @@ if (totalAmount > 1000) {
     totalAmount *= 0.9;  // 10% discount
 }
 
+var orderId = "ORD" + Math.floor(Math.random() * 10000);
+execution.setVariable("orderId", orderId);
 execution.setVariable("orderTotal", totalAmount);
 
-System.out.println("Order total calculated: $" + totalAmount);
+System.out.println("Order Id: " + orderId + ", total calculated: $" + totalAmount);

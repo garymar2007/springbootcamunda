@@ -24,4 +24,12 @@ public class CamundaBPMController {
         instance.executeWithVariablesInReturn();
         return "Execute Camunda BPMN Task Successfully";
     }
+    @GetMapping("/executeOrderPaymentService")
+    public String executeOrderPaymentService() {
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        ProcessInstantiationBuilder instance = processEngine.getRuntimeService().createProcessInstanceByKey("order-payment-service");//"first-javainuse");
+        instance.executeWithVariablesInReturn();
+        return "Execute Camunda BPMN Task Successfully";
+    }
+
 }
