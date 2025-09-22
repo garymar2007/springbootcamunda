@@ -1,13 +1,13 @@
 package com.gary.camunda.delegate;
 
+import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
+import org.springframework.stereotype.Component;
 
-/**
- *  Using fully qualified java class as delegate.
- */
-public class ConfirmationEmailDelegate implements JavaDelegate {
+@Component
+public class ConfirmationEmailExpressionDelegate implements JavaDelegate {
     @Override
-    public void execute(org.camunda.bpm.engine.delegate.DelegateExecution execution) throws Exception {
+    public void execute(DelegateExecution execution) throws Exception {
         System.out.println("ConfirmationEmailDelegate invoked");
         // Add logic to send confirmation email
         String orderId = (String) execution.getVariable("orderId");

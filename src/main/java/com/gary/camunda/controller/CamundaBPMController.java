@@ -20,16 +20,24 @@ public class CamundaBPMController {
     @GetMapping("/executeOrderPaymentTask")
     public String executeOrderPayment() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
-        ProcessInstantiationBuilder instance = processEngine.getRuntimeService().createProcessInstanceByKey("order-payment");//"first-javainuse");
+        ProcessInstantiationBuilder instance = processEngine.getRuntimeService().createProcessInstanceByKey("order-payment");
         instance.executeWithVariablesInReturn();
         return "Execute Camunda BPMN Task Successfully";
     }
     @GetMapping("/executeOrderPaymentService")
     public String executeOrderPaymentService() {
         ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
-        ProcessInstantiationBuilder instance = processEngine.getRuntimeService().createProcessInstanceByKey("order-payment-service");//"first-javainuse");
+        ProcessInstantiationBuilder instance = processEngine.getRuntimeService().createProcessInstanceByKey("order-payment-service");
         instance.executeWithVariablesInReturn();
         return "Execute Camunda BPMN Task Successfully";
     }
+    @GetMapping("/executeOrderPaymentServiceExpression")
+    public String executeOrderPaymentServiceExpression() {
+        ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
+        ProcessInstantiationBuilder instance = processEngine.getRuntimeService().createProcessInstanceByKey("order-payment-service-expression");
+        instance.executeWithVariablesInReturn();
+        return "Execute Camunda BPMN Task Successfully";
+    }
+
 
 }
